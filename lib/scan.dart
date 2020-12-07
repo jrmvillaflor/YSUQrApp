@@ -57,10 +57,9 @@ class ScanPageState extends State<ScanPage> {
     getAccessToken(url);
 
     String formattedDate = DateFormat.yMd().add_jm().format(now);
-
     String userfname = qrCodeResult;
     String timein = formattedDate;
-    String branch = 'YSU Igpit Opol';
+    String branch = 'YSU IGPIT OPOL';
 
     Map<String, String> headers = {
       "Content-type": "application/x-www-form-urlencoded"
@@ -75,7 +74,6 @@ class ScanPageState extends State<ScanPage> {
     int statusCode = response.statusCode;
 
     print(statusCode);
-
     print(response);
 
     showToastAddSuccess();
@@ -179,16 +177,16 @@ class ScanPageState extends State<ScanPage> {
                             : RaisedButton(
                                 shape: RoundedRectangleBorder(
                                     borderRadius:
-                                        new BorderRadius.circular(30.0)),
+                                      new BorderRadius.circular(30.0)),
                                 onPressed: () async {
                                   adduser();
                                 },
                                 child: Text(
                                   'Enter',
                                   style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20.0,
-                                      fontFamily: 'Raleway'),
+                                    color: Colors.white,
+                                    fontSize: 20.0,
+                                    fontFamily: 'Raleway'),
                                 ),
                               ),
                         Container(
