@@ -39,7 +39,8 @@ class HomePageState extends State<HomePage> {
           title: Text('Hello, ${widget.value}!'.toUpperCase(),
               style: TextStyle(
                 fontFamily: 'Raleway',
-              )),
+            ),
+          ),
           backgroundColor: appBarColor,
           actions: <Widget>[
             IconButton(
