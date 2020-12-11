@@ -30,12 +30,13 @@ Future getAccessToken(String url) async {
 }
 
 class ScanPageState extends State<ScanPage> {
-  final String url = "https://192.168.10.215/mk/userLoginController";
-  final String url2 = "https://192.168.10.215/mk/adminController";
+  final String url = "http://monsterkitchen.000webhostapp.com/mk/userLoginController";
+  final String url2 = "http://monsterkitchen.000webhostapp.com/mk/adminController";
 
   var dropdownValue;
   List userList;
   Map userMap;
+  final temperature = TextEditingController();
 
   getAllDatas() async {
     getAccessToken(url);
@@ -59,7 +60,8 @@ class ScanPageState extends State<ScanPage> {
     String formattedDate = DateFormat.yMd().add_jm().format(now);
     String userfname = qrCodeResult;
     String timein = formattedDate;
-    String branch = 'YSU IGPIT OPOL';
+    String branch = 'YSU - IGPIT';
+    String temp = temperature.text + "°C";
 
     Map<String, String> headers = {
       "Content-type": "application/x-www-form-urlencoded"
@@ -68,6 +70,7 @@ class ScanPageState extends State<ScanPage> {
       "userFNAME": "$userfname",
       "timein": "$timein",
       "branch": "$branch",
+      "temperature": "$temp",
     };
 
     final response = await https.post(url, headers: headers, body: adduser);
@@ -120,8 +123,7 @@ class ScanPageState extends State<ScanPage> {
                 setState(() {
                   backCamera = !backCamera;
                   camera = backCamera ? 1 : -1;
-                }
-              );
+                });
               },
             ),
           ],
@@ -149,20 +151,47 @@ class ScanPageState extends State<ScanPage> {
                 ),
                 Container(
                   child: Padding(
-                      padding: EdgeInsets.fromLTRB(30, 0, 30, 5),
-                      child: Column(
-                        children: <Widget>[
-                          (qrCodeResult == null) || (qrCodeResult == "")
-                              ? Text('')
-                              : Text('BRANCH: YSU Igpit Opol'.toUpperCase(),
-                              style: TextStyle(
-                                fontFamily: 'Raleway',
-                                fontWeight: FontWeight.w900,
-                                fontSize: 18,
+                    padding: EdgeInsets.fromLTRB(30, 0, 30, 5),
+                    child: Column(
+                      children: <Widget>[
+                        (qrCodeResult == null) || (qrCodeResult == "")
+                            ? Text('')
+                            : Text(
+                                'BRANCH: YSU - Igpit'.toUpperCase(),
+                                style: TextStyle(
+                                  fontFamily: 'Raleway',
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 18,
+                                ),
                               ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(80, 0, 80, 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        (qrCodeResult == null) || (qrCodeResult == "")
+                            ? Text('')
+                            : TextFormField(
+                                textInputAction: TextInputAction.done,
+                                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                controller: temperature,
+                                decoration: InputDecoration(
+                                hintText: "Temperature".toUpperCase(),                              
+                                hintStyle: TextStyle(
+                                  fontFamily: 'Raleway',
+                                  fontSize: 12,
+                                  color: Colors.grey
+                                ),
+                                ),
                               ),
-                        ],
-                      )),
+                      ],
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 15, 0, 10),
@@ -177,16 +206,16 @@ class ScanPageState extends State<ScanPage> {
                             : RaisedButton(
                                 shape: RoundedRectangleBorder(
                                     borderRadius:
-                                      new BorderRadius.circular(30.0)),
+                                        new BorderRadius.circular(30.0)),
                                 onPressed: () async {
                                   adduser();
                                 },
                                 child: Text(
                                   'Enter',
                                   style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20.0,
-                                    fontFamily: 'Raleway'),
+                                      color: Colors.white,
+                                      fontSize: 20.0,
+                                      fontFamily: 'Raleway'),
                                 ),
                               ),
                         Container(
@@ -197,17 +226,16 @@ class ScanPageState extends State<ScanPage> {
                             child: Column(
                               children: <Widget>[
                                 (qrCodeResult == null) || (qrCodeResult == "")
-                            ? IconButton(
-                                  iconSize: 60,
-                                  icon:
-                                      Icon(MaterialCommunityIcons.qrcode_scan),
-                                  color: Colors.black,
-                                  onPressed: () {
-                                    _scan();
-                                  },
-                                )
-                            : 
-                            Text('') 
+                                    ? IconButton(
+                                        iconSize: 60,
+                                        icon: Icon(
+                                            MaterialCommunityIcons.qrcode_scan),
+                                        color: Colors.black,
+                                        onPressed: () {
+                                          _scan();
+                                        },
+                                      )
+                                    : Text('')
                               ],
                             ),
                           ),

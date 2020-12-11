@@ -28,7 +28,7 @@ Future getAccessToken(String url) async {
   HttpOverrides.global = new MyHttpOverrides();
 }
 
-final String url = "https://192.168.10.215/mk/userController";
+final String url = "http://monsterkitchen.000webhostapp.com/mk/userController";
 
 class SignUpPageState extends State<SignUpPage> {
   @override
@@ -43,7 +43,7 @@ class SignUpPageState extends State<SignUpPage> {
   String dummyData;
   TextEditingController qrTextController = TextEditingController();
 
-  final String url = "https://192.168.10.215/mk/userController";
+  final String url = "http://monsterkitchen.000webhostapp.com/mk/userController";
 
   bool isUpdating = false;
   Map data;
@@ -147,8 +147,7 @@ class SignUpPageState extends State<SignUpPage> {
                           Text(
                             'Contact Tracing App'.toUpperCase(),
                             style: TextStyle(
-                              fontFamily: 'Raleway',
-                              color: Colors.grey),
+                                fontFamily: 'Raleway', color: Colors.grey),
                           ),
                         ],
                       ),
@@ -162,31 +161,29 @@ class SignUpPageState extends State<SignUpPage> {
                           value.isEmpty ? 'Please enter valid Name' : null,
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(12),
-                          filled: true,
-                          fillColor: Colors.black12,
-                          border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.transparent)),
-                          focusedBorder: OutlineInputBorder(
+                        contentPadding: EdgeInsets.all(12),
+                        filled: true,
+                        fillColor: Colors.black12,
+                        border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(30)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.transparent),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(30)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.transparent),
-                          ),
-                          labelText: "Full Name",
-                          labelStyle: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Raleway',
-                            fontSize: 13,
-                          ),
+                            borderSide: BorderSide(color: Colors.transparent)),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          borderSide:
+                              BorderSide(width: 1, color: Colors.transparent),
                         ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          borderSide:
+                              BorderSide(width: 1, color: Colors.transparent),
+                        ),
+                        labelText: "Full Name",
+                        labelStyle: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Raleway',
+                          fontSize: 13,
+                        ),
+                      ),
                       controller: userFNAME,
                     ),
                   ),
@@ -198,30 +195,28 @@ class SignUpPageState extends State<SignUpPage> {
                           value.isEmpty ? 'Please enter valid Address' : null,
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(12),
-                          filled: true,
-                          fillColor: Colors.black12,
-                          border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.transparent)),
-                          focusedBorder: OutlineInputBorder(
+                        contentPadding: EdgeInsets.all(12),
+                        filled: true,
+                        fillColor: Colors.black12,
+                        border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(30)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.transparent),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(30)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.transparent),
-                          ),
-                          labelText: "Complete Address",
-                          labelStyle: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Raleway',
-                            fontSize: 13,
-                          ),
+                            borderSide: BorderSide(color: Colors.transparent)),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          borderSide:
+                              BorderSide(width: 1, color: Colors.transparent),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          borderSide:
+                              BorderSide(width: 1, color: Colors.transparent),
+                        ),
+                        labelText: "Complete Address",
+                        labelStyle: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Raleway',
+                          fontSize: 13,
+                        ),
                       ),
                       controller: userADDRESS,
                     ),
@@ -242,31 +237,29 @@ class SignUpPageState extends State<SignUpPage> {
                       },
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
-                          contentPadding: EdgeInsets.all(12),
-                          filled: true,
-                          fillColor: Colors.black12,
-                          border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.transparent)),
-                          focusedBorder: OutlineInputBorder(
+                        contentPadding: EdgeInsets.all(12),
+                        filled: true,
+                        fillColor: Colors.black12,
+                        border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(30)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.transparent),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(30)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.transparent),
-                          ),
-                          labelText: "Mobile Number",
-                          labelStyle: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Raleway',
-                            fontSize: 13,
-                          ),
+                            borderSide: BorderSide(color: Colors.transparent)),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          borderSide:
+                              BorderSide(width: 1, color: Colors.transparent),
                         ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          borderSide:
+                              BorderSide(width: 1, color: Colors.transparent),
+                        ),
+                        labelText: "Mobile Number",
+                        labelStyle: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Raleway',
+                          fontSize: 13,
+                        ),
+                      ),
                       controller: userCONTACTNUMBER,
                     ),
                   ),

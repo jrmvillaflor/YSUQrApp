@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  final String url = "https://192.168.10.215/mk/adminController";
+  final String url = "http://monsterkitchen.000webhostapp.com/mk/adminController";
 
   List userList;
   Map userMap;
@@ -98,6 +98,22 @@ class HomePageState extends State<HomePage> {
                                     fontSize: 25,
                                     color: Colors.white,
                                     fontFamily: 'Raleway'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(50.0),
+                          child: Column(
+                            children: <Widget>[
+                              Text('More features coming soon!',
+                              style: TextStyle(
+                                fontFamily: 'Raleway',
+                                color: Colors.teal[400],
+                                letterSpacing: 2
+                              ),
                               ),
                             ],
                           ),
