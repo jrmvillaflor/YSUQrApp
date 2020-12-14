@@ -9,10 +9,12 @@ import 'package:flutter/rendering.dart';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:ysuapp/user.dart';
+
 class GeneratePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => GeneratePageState();
-  final String value;
+  final User value;
   GeneratePage({Key key, @required this.value}) : super(key: key);
 }
 
@@ -48,7 +50,6 @@ class GeneratePageState extends State<GeneratePage> {
   }
 
   _saveScreen() async {
-    
     RenderRepaintBoundary boundary =
         previewContainer.currentContext.findRenderObject();
     ui.Image image = await boundary.toImage();
@@ -69,7 +70,7 @@ class GeneratePageState extends State<GeneratePage> {
         actions: <Widget>[],
         backgroundColor: appBarColor,
         title: Text(
-          'Welcome ${widget.value}',
+          'Welcome ${widget.value.fullname}',
           style: TextStyle(fontFamily: 'Raleway', fontSize: 12),
         ),
       ),
@@ -93,14 +94,14 @@ class GeneratePageState extends State<GeneratePage> {
                       color: Colors.lightGreen,
                       onPressed: () {
                         setState(() {
-                          dummyData = '${widget.value}' == ""
+                          dummyData = '${widget.value.fullname}' == ""
                               ? null
-                              : '${widget.value}';
+                              : '${widget.value.fullname}';
                         });
                       },
                     ),
                     title: TextFormField(
-                      initialValue: '${widget.value}',
+                      initialValue: '${widget.value.fullname}',
                       decoration: InputDecoration(),
                     ),
                   ),
@@ -115,11 +116,23 @@ class GeneratePageState extends State<GeneratePage> {
                     )
                   : RepaintBoundary(
                       key: previewContainer,
-                      child: QrImage(
-                        backgroundColor: CupertinoColors.white,
-                        embeddedImage: AssetImage('assets/images/ysulogo.png'),
-                        data: dummyData,
-                        gapless: true,
+                      child: Container(
+                        color: Colors.white,
+                        child: Column(
+                          children: [
+                            Text(
+                              '${widget.value.fullname}'.toUpperCase(),
+                              style: TextStyle(backgroundColor: Colors.white),
+                            ),
+                            QrImage(
+                              backgroundColor: CupertinoColors.white,
+                              embeddedImage:
+                                  AssetImage('assets/images/ysulogo.png'),
+                              data: dummyData,
+                              gapless: true,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
               (dummyData == null)
@@ -138,15 +151,17 @@ class GeneratePageState extends State<GeneratePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Save to Gallery'.toUpperCase(),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Raleway'
-                            ),),
+                            Text(
+                              'Save to Gallery'.toUpperCase(),
+                              style: TextStyle(
+                                  color: Colors.white, fontFamily: 'Raleway'),
+                            ),
                             Padding(
                               padding: const EdgeInsets.only(left: 20.0),
-                              child: Icon(Icons.download_sharp,
-                              color: Colors.white,),
+                              child: Icon(
+                                Icons.download_sharp,
+                                color: Colors.white,
+                              ),
                             ),
                           ],
                         ),

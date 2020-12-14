@@ -5,6 +5,7 @@ import 'package:http/http.dart' as https;
 import 'dart:async';
 import 'generatescreen.dart';
 import 'dart:io';
+import 'user.dart';
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -54,13 +55,18 @@ class SignUpPageState extends State<SignUpPage> {
     Navigator.of(context)
         .push(MaterialPageRoute(
           builder: (BuildContext context) => GeneratePage(
-            value: userFNAME.text,
+            value: User(
+              fullname: userFNAME.text,
+              address: userADDRESS.text,
+              contactnumber: userCONTACTNUMBER.text,
+            ),
           ),
         ))
         .then((_) => formKey.currentState.reset());
   }
 
   Future<dynamic> adduser() async {
+    
     String userfname = userFNAME.text;
     String usercontact = userCONTACTNUMBER.text;
     String useraddr = userADDRESS.text;
