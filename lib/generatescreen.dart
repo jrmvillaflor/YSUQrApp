@@ -8,7 +8,6 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:flutter/rendering.dart';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
-
 import 'package:ysuapp/user.dart';
 
 class GeneratePage extends StatefulWidget {
@@ -66,7 +65,11 @@ class GeneratePageState extends State<GeneratePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Container(),
+        leading: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        }, icon:  Icon(Icons.arrow_back),
+        ),
         actions: <Widget>[],
         backgroundColor: appBarColor,
         title: Text(
