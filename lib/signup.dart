@@ -44,7 +44,7 @@ class SignUpPageState extends State<SignUpPage> {
   String dummyData;
   TextEditingController qrTextController = TextEditingController();
 
-  final String url = "http://monsterkitchen.000webhostapp.com/mk/userController";
+  final String url = "https://monsterkitchen.000webhostapp.com/mk/userController";
 
   bool isUpdating = false;
   Map data;

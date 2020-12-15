@@ -30,8 +30,8 @@ Future getAccessToken(String url) async {
 }
 
 class ScanPageState extends State<ScanPage> {
-  final String url = "http://monsterkitchen.000webhostapp.com/mk/userLoginController";
-  final String url2 = "http://monsterkitchen.000webhostapp.com/mk/adminController";
+  final String url = "https://monsterkitchen.000webhostapp.com/mk/userLoginController";
+  final String url2 = "https://monsterkitchen.000webhostapp.com/mk/adminController";
 
   var dropdownValue;
   List userList;
