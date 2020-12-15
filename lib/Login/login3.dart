@@ -236,7 +236,7 @@ class CustomerLoginPageState extends State<CustomerLoginPage> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 15, 0, 10),
                         child: ButtonTheme(
-                          buttonColor: Color.fromARGB(500, 4, 183, 226),
+                          buttonColor: Colors.lightGreen,
                           minWidth: 310.0,
                           height: 50.0,
                           child: RaisedButton(
