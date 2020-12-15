@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'Login/login2.dart';
 import 'signup.dart';
 
 
@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => LoginPage()
+                                            builder: (context) => SelectLoginPage()
                                         ),
                                       );
                                     },

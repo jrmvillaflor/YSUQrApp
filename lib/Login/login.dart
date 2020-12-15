@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as https;
 import 'dart:convert';
-import 'home.dart';
 import 'dart:io';
+
+import '../home.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage();

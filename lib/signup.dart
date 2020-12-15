@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as https;
 import 'dart:async';
-import 'generatescreen.dart';
 import 'dart:io';
 import 'user.dart';
+import 'userhome.dart';
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -54,7 +54,7 @@ class SignUpPageState extends State<SignUpPage> {
     getAccessToken(url);
     Navigator.of(context)
         .push(MaterialPageRoute(
-          builder: (BuildContext context) => GeneratePage(
+          builder: (BuildContext context) => UserHomePage(
             value: User(
               fullname: userFNAME.text,
               address: userADDRESS.text,
